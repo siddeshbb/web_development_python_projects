@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+    <table>
+    {% for p in pages %}
+        <tr>
+            <td>{{p.created.strftime("%a, %d %b %Y %H:%M:%S")}}</td>
+            <td>{{p.content}}</td>
+            <td><a href="{{p.url}}?v={{p.key().id() | safe }}">view</a></td>
+            <td><a href="/_edit{{p.url}}?v={{p.key().id() | safe }}">edit</a></td>
+        </tr>
+{% endfor %}
+    </table>
+{% endblock %}
